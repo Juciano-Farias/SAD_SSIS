@@ -1,0 +1,2942 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/5/2024 5:58:05 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MSI"
+  DTS:CreatorName="MSI\jucia"
+  DTS:DTSID="{6180CD7C-E0FF-4E73-AEDE-B856756CD21F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LocaleID="1046"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="68"
+  DTS:VersionGUID="{8B5ED394-1F4A-41EE-81A3-204F8ECC7293}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[127.0.0.1.Data_mart.SA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0A7221B1-2DB0-402F-8FA4-3B8BDB26E7F9}"
+      DTS:ObjectName="127.0.0.1.Data_mart.SA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=127.0.0.1;User ID=SA;Initial Catalog=Data_mart;Provider=SQLOLEDB.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{0A7221B1-2DB0-402F-8FA4-3B8BDB26E7F9}127.0.0.1.Data_mart.SA;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGL8840RY9UenotrO0axWRQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADfBX6O8ZK5Deo/xT9SmofDwzXOedwCSx7bmQjvE+d16wAAAAAOgAAAAAIAACAAAAA2xlnUYDCQkqIbux3Ji0DoLoEGF+y4hWUGU5IO/+38UyAAAABSzkbXQR7bC2ntEUSTw1EKkXA4yagKVaSoG5od6szhw0AAAAAnmwyzglsc8GBu6YIsmP++ektarugZ1MRaA+h0vluQfEvmBL/9FyHdnLl14zR4HlOXEW5YVuBtghNvbTO/FXzS</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[127.0.0.1.SA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C1CCB280-E838-4BF8-A376-4FBF2EE6479F}"
+      DTS:ObjectName="127.0.0.1.SA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=127.0.0.1;User ID=SA;Initial Catalog=Transfermarkt;Provider=SQLOLEDB.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{C1CCB280-E838-4BF8-A376-4FBF2EE6479F}127.0.0.1.SA;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGL8840RY9UenotrO0axWRQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAApa3+q22hvh2D3iqpliJIp0YgI92TFPEST9Rt0w8PXcwAAAAAOgAAAAAIAACAAAADdLCQSiEnLG/2N8AKVP5CfHNEpvx9YWL0adU6luAHDdSAAAAAbGT0dYK8blQNu6w5wwuA3Y7d0jMdSeBqfJH0UkGK0LUAAAABmRKuvphhzUz27DVR8tND/idT0y0TvAJpHetbHOySLmuAEpM/q5/oodDvBYH8QZMDS9Fz5AcAtCkbZ5pDlNj2x</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DSA_Estádios"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:DTSID="{75ab04a6-3873-419a-8324-71b1668ce9e5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DSA_Estádios"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0A7221B1-2DB0-402F-8FA4-3B8BDB26E7F9}"
+          SQLTask:SqlStatementSource="DROP TABLE IF EXISTS [dbo].[Estadios_Insert];&#xA;DROP TABLE IF EXISTS [dbo].[Estadios_Update];&#xA;&#xA;CREATE TABLE [dbo].[Estadios_Insert] (&#xA;    EstadioID INT NOT NULL,&#xA;    Nome VARCHAR(60),&#xA;    Capacidade INT,&#xA;    DataInicioVigencia DATETIME NOT NULL,&#xA;    DataFimVigencia DATETIME,&#xA;    Ativo BIT NOT NULL&#xA;);&#xA;&#xA;CREATE TABLE [dbo].[Estadios_Update] (&#xA;    EstadioID INT NOT NULL,&#xA;    Nome VARCHAR(60),&#xA;    Capacidade INT,&#xA;    DataInicioVigencia DATETIME NOT NULL,&#xA;    DataFimVigencia DATETIME,&#xA;    Ativo BIT NOT NULL&#xA;);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DSA_Paises"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:Disabled="True"
+      DTS:DTSID="{BC9153A5-E2F6-42A5-9974-44FB9E2A6919}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DSA_Paises"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0A7221B1-2DB0-402F-8FA4-3B8BDB26E7F9}"
+          SQLTask:SqlStatementSource="DROP TABLE IF EXISTS [dbo].[Paises_Insert];&#xA;DROP TABLE IF EXISTS [dbo].[Paises_Update];&#xA;&#xA;&#xA;CREATE TABLE [dbo].[Paises_Insert] (&#xA;    PaisID INT NOT NULL,&#xA;    Nome VARCHAR(50)&#xA;);&#xA;&#xA;CREATE TABLE [dbo].[Paises_Update] (&#xA;    PaisID INT NOT NULL,&#xA;    Nome VARCHAR(50)&#xA;);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fluxo Estádios"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarefa Fluxo de Dados"
+      DTS:DTSID="{0666B2ED-FD5D-446A-9C39-B24285F568DC}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fluxo Estádios"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Fluxo Estádios\Divisão Condicional"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Divisão Condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;0"
+              description="Encaminha colunas de dados para saídas diferentes, dependendo do conteúdo dos dados. Use condições (expressões do SSIS) para especificar quais linhas são encaminhadas. Por exemplo, separe os registros que precisam ser limpos daqueles que estão prontos para serem carregados ou encaminhe somente um subconjunto de registros."
+              name="Divisão Condicional"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Fluxo Estádios\Divisão Condicional.Inputs[Entrada de Divisão Condicional]"
+                  description="Entrada para a Transformação Divisão Condicional"
+                  name="Entrada de Divisão Condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fluxo Estádios\Divisão Condicional.Inputs[Entrada de Divisão Condicional].Columns[Nome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="Nome"
+                      lineageId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Nome]" />
+                    <inputColumn
+                      refId="Package\Fluxo Estádios\Divisão Condicional.Inputs[Entrada de Divisão Condicional].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      lineageId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\Fluxo Estádios\Divisão Condicional.Inputs[Entrada de Divisão Condicional].Columns[Capacidade]"
+                      cachedDataType="i4"
+                      cachedName="Capacidade"
+                      lineageId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Capacidade]" />
+                    <inputColumn
+                      refId="Package\Fluxo Estádios\Divisão Condicional.Inputs[Entrada de Divisão Condicional].Columns[Dest_Nome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="Dest_Nome"
+                      lineageId="Package\Fluxo Estádios\Pesquisa.Outputs[Saída de Correspondência de Pesquisa].Columns[Dest_Nome]" />
+                    <inputColumn
+                      refId="Package\Fluxo Estádios\Divisão Condicional.Inputs[Entrada de Divisão Condicional].Columns[Dest_Capacidade]"
+                      cachedDataType="i4"
+                      cachedName="Dest_Capacidade"
+                      lineageId="Package\Fluxo Estádios\Pesquisa.Outputs[Saída de Correspondência de Pesquisa].Columns[Dest_Capacidade]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fluxo Estádios\Divisão Condicional.Outputs[Novo registro]"
+                  description="Saída 1 da Transformação Divisão Condicional"
+                  errorOrTruncationOperation="Computação"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Novo registro"
+                  synchronousInputId="Package\Fluxo Estádios\Divisão Condicional.Inputs[Entrada de Divisão Condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica a expressão. Essa versão da expressão usa identificadores de linhagem, em vez de nomes de colunas."
+                      name="Expression">[ISNULL](#{Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[ID]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica a versão amigável da expressão. Essa versão de expressão usa nomes de colunas."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(ID)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica a posição da condição na lista de condições que a transformação avalia. A ordem de avaliação é do menor para o maior valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fluxo Estádios\Divisão Condicional.Outputs[SCD Tipo 2]"
+                  description="Saída 3 da Transformação Divisão Condicional"
+                  errorOrTruncationOperation="Computação"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="SCD Tipo 2"
+                  synchronousInputId="Package\Fluxo Estádios\Divisão Condicional.Inputs[Entrada de Divisão Condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica a expressão. Essa versão da expressão usa identificadores de linhagem, em vez de nomes de colunas."
+                      name="Expression">#{Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Capacidade]} != #{Package\Fluxo Estádios\Pesquisa.Outputs[Saída de Correspondência de Pesquisa].Columns[Dest_Capacidade]} || #{Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Nome]} != #{Package\Fluxo Estádios\Pesquisa.Outputs[Saída de Correspondência de Pesquisa].Columns[Dest_Nome]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica a versão amigável da expressão. Essa versão de expressão usa nomes de colunas."
+                      expressionType="Notify"
+                      name="FriendlyExpression">Capacidade != Dest_Capacidade || Nome != Dest_Nome</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica a posição da condição na lista de condições que a transformação avalia. A ordem de avaliação é do menor para o maior valor."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fluxo Estádios\Divisão Condicional.Outputs[Saída Padrão de Divisão Condicional]"
+                  description="Saída Padrão da Transformação Divisão Condicional"
+                  exclusionGroup="1"
+                  name="Saída Padrão de Divisão Condicional"
+                  synchronousInputId="Package\Fluxo Estádios\Divisão Condicional.Inputs[Entrada de Divisão Condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fluxo Estádios\Divisão Condicional.Outputs[Saída de Erro de Divisão Condicional]"
+                  description="Saída de Erro da Transformação Divisão Condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Divisão Condicional"
+                  synchronousInputId="Package\Fluxo Estádios\Divisão Condicional.Inputs[Entrada de Divisão Condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Divisão Condicional.Outputs[Saída de Erro de Divisão Condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Estádios\Divisão Condicional.Outputs[Saída de Erro de Divisão Condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Divisão Condicional.Outputs[Saída de Erro de Divisão Condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Estádios\Divisão Condicional.Outputs[Saída de Erro de Divisão Condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fluxo Estádios\Novo Registro"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino OLE DB"
+              name="Novo Registro"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">[dbo].[DimEstadios]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se os valores fornecidos para colunas de identidade serão copiados no destino. Se false, os valores para colunas de identidade serão gerados automaticamente no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se as colunas que contêm null terão null inserido no destino. Se false, as colunas que contêm null terão seus valores padrão inseridos no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica as opções a serem usadas com o carregamento rápido. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica quando confirmações são emitidas durante a inserção de dados. Um valor de 0 especifica que uma confirmação será emitida ao final da inserção de dados. Aplicável somente se o carregamento rápido estiver ativado."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fluxo Estádios\Novo Registro.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[127.0.0.1.Data_mart.SA]"
+                  connectionManagerRefId="Package.ConnectionManagers[127.0.0.1.Data_mart.SA]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fluxo Estádios\Novo Registro.Inputs[Entrada de Destino OLE DB]"
+                  errorOrTruncationOperation="Inserir"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de Destino OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fluxo Estádios\Novo Registro.Inputs[Entrada de Destino OLE DB].Columns[Nome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="Nome"
+                      externalMetadataColumnId="Package\Fluxo Estádios\Novo Registro.Inputs[Entrada de Destino OLE DB].ExternalColumns[Nome]"
+                      lineageId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Nome]" />
+                    <inputColumn
+                      refId="Package\Fluxo Estádios\Novo Registro.Inputs[Entrada de Destino OLE DB].Columns[Capacidade]"
+                      cachedDataType="i4"
+                      cachedName="Capacidade"
+                      externalMetadataColumnId="Package\Fluxo Estádios\Novo Registro.Inputs[Entrada de Destino OLE DB].ExternalColumns[Capacidade]"
+                      lineageId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Capacidade]" />
+                    <inputColumn
+                      refId="Package\Fluxo Estádios\Novo Registro.Inputs[Entrada de Destino OLE DB].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\Fluxo Estádios\Novo Registro.Inputs[Entrada de Destino OLE DB].ExternalColumns[EstadioID]"
+                      lineageId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\Fluxo Estádios\Novo Registro.Inputs[Entrada de Destino OLE DB].Columns[DataInicioVigencia]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataInicioVigencia"
+                      externalMetadataColumnId="Package\Fluxo Estádios\Novo Registro.Inputs[Entrada de Destino OLE DB].ExternalColumns[DataInicioVigencia]"
+                      lineageId="Package\Fluxo Estádios\Transform Novo 2.Outputs[Saída de Coluna Derivada].Columns[DataInicioVigencia]" />
+                    <inputColumn
+                      refId="Package\Fluxo Estádios\Novo Registro.Inputs[Entrada de Destino OLE DB].Columns[Ativo]"
+                      cachedDataType="bool"
+                      cachedName="Ativo"
+                      externalMetadataColumnId="Package\Fluxo Estádios\Novo Registro.Inputs[Entrada de Destino OLE DB].ExternalColumns[Ativo]"
+                      lineageId="Package\Fluxo Estádios\Transform Novo 2.Outputs[Saída de Coluna Derivada].Columns[Ativo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\Novo Registro.Inputs[Entrada de Destino OLE DB].ExternalColumns[EstadioSurrogateKey]"
+                      dataType="i4"
+                      name="EstadioSurrogateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\Novo Registro.Inputs[Entrada de Destino OLE DB].ExternalColumns[EstadioID]"
+                      dataType="i4"
+                      name="EstadioID" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\Novo Registro.Inputs[Entrada de Destino OLE DB].ExternalColumns[Nome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="Nome" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\Novo Registro.Inputs[Entrada de Destino OLE DB].ExternalColumns[Capacidade]"
+                      dataType="i4"
+                      name="Capacidade" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\Novo Registro.Inputs[Entrada de Destino OLE DB].ExternalColumns[DataInicioVigencia]"
+                      dataType="dbTimeStamp"
+                      name="DataInicioVigencia" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\Novo Registro.Inputs[Entrada de Destino OLE DB].ExternalColumns[DataFimVigencia]"
+                      dataType="dbTimeStamp"
+                      name="DataFimVigencia" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\Novo Registro.Inputs[Entrada de Destino OLE DB].ExternalColumns[Ativo]"
+                      dataType="bool"
+                      name="Ativo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fluxo Estádios\Novo Registro.Outputs[Saída de Erro de Destino OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Destino OLE DB"
+                  synchronousInputId="Package\Fluxo Estádios\Novo Registro.Inputs[Entrada de Destino OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Novo Registro.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Estádios\Novo Registro.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Novo Registro.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Estádios\Novo Registro.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fluxo Estádios\Origem OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origem OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;7"
+              description="Origem OLE DB"
+              name="Origem OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">[dbo].[Estadios]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM Estadios</property>
+                <property
+                  dataType="System.String"
+                  description="A variável que contém o comando SQL a ser executado."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Os mapeamentos entre os parâmetros no comando SQL e as variáveis."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fluxo Estádios\Origem OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[127.0.0.1.SA]"
+                  connectionManagerRefId="Package.ConnectionManagers[127.0.0.1.SA]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB]"
+                  name="Saída de Origem OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Nome]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[Nome]"
+                      length="60"
+                      lineageId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Nome]"
+                      name="Nome"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[ID]"
+                      lineageId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Capacidade]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[Capacidade]"
+                      lineageId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Capacidade]"
+                      name="Capacidade"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[Nome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="Nome" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[Capacidade]"
+                      dataType="i4"
+                      name="Capacidade" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB]"
+                  isErrorOut="true"
+                  name="Saída de Erro de Origem OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[Nome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      lineageId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[Nome]"
+                      name="Nome" />
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[Capacidade]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[Capacidade]"
+                      name="Capacidade" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fluxo Estádios\Pesquisa"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Pesquisa;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;6"
+              description="Une colunas adicionais aos fluxos de dados pesquisando valores de uma tabela. Por exemplo, una à coluna 'employee id' a tabela de funcionários para obter 'hire date' e 'employee name'. Essa transformação é recomendada quando a tabela de pesquisa está de acordo com a memória."
+              name="Pesquisa"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica a instrução SQL que gera a tabela de pesquisa."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimEstadios]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica uma instrução SQL que usa parâmetros para gerar a tabela de pesquisa."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimEstadios]) [refTable]
+where [refTable].[Capacidade] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o tipo de conexão usado para acessar o conjunto de dados de referência."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o tipo de cache da tabela de pesquisa."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica como a transformação Pesquisa trata as linhas sem entradas correspondentes no conjunto de dados de referência."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a porcentagem do cache alocada para linhas sem entradas correspondentes no conjunto de dados de referência."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso Máximo de Memória para o Cache de Referência em uma plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso Máximo de Memória para o Cache de Referência em uma plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica se os metadados de referência em um formato XML devem ser referenciados."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="EstadioSurrogateKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EstadioID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Nome" dataType="DT_STR" length="60" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Capacidade" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DataInicioVigencia" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DataFimVigencia" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Ativo" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica a lista de identificadores de linhagem mapeados para os parâmetros usados pela instrução SQL na propriedade SQLCommand. As entradas na lista são separadas por ponto e vírgulas."
+                  name="ParameterMap">#{Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[ID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina se as chaves duplicadas nos dados de referência devem ser tratadas como erros quando o modo de cache cheio é usado."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fluxo Estádios\Pesquisa.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[127.0.0.1.Data_mart.SA]"
+                  connectionManagerRefId="Package.ConnectionManagers[127.0.0.1.Data_mart.SA]"
+                  description="O gerenciador de conexões usado para acessar dados de pesquisa."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fluxo Estádios\Pesquisa.Inputs[Entrada de Pesquisa]"
+                  name="Entrada de Pesquisa">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fluxo Estádios\Pesquisa.Inputs[Entrada de Pesquisa].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      lineageId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica a coluna na tabela de referência que uma coluna une."
+                          name="JoinToReferenceColumn">Capacidade</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica a coluna na tabela de referência a partir da qual uma coluna é copiada."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fluxo Estádios\Pesquisa.Outputs[Saída de Correspondência de Pesquisa]"
+                  errorOrTruncationOperation="Pesquisa"
+                  exclusionGroup="1"
+                  name="Saída de Correspondência de Pesquisa"
+                  synchronousInputId="Package\Fluxo Estádios\Pesquisa.Inputs[Entrada de Pesquisa]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Pesquisa.Outputs[Saída de Correspondência de Pesquisa].Columns[Dest_Nome]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copiar Coluna"
+                      length="60"
+                      lineageId="Package\Fluxo Estádios\Pesquisa.Outputs[Saída de Correspondência de Pesquisa].Columns[Dest_Nome]"
+                      name="Dest_Nome"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica a coluna na tabela de referência a partir da qual uma coluna é copiada."
+                          name="CopyFromReferenceColumn">Nome</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Pesquisa.Outputs[Saída de Correspondência de Pesquisa].Columns[Dest_Capacidade]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copiar Coluna"
+                      lineageId="Package\Fluxo Estádios\Pesquisa.Outputs[Saída de Correspondência de Pesquisa].Columns[Dest_Capacidade]"
+                      name="Dest_Capacidade"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica a coluna na tabela de referência a partir da qual uma coluna é copiada."
+                          name="CopyFromReferenceColumn">Capacidade</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Pesquisa.Outputs[Saída de Correspondência de Pesquisa].Columns[EstadioID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copiar Coluna"
+                      lineageId="Package\Fluxo Estádios\Pesquisa.Outputs[Saída de Correspondência de Pesquisa].Columns[EstadioID]"
+                      name="EstadioID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica a coluna na tabela de referência a partir da qual uma coluna é copiada."
+                          name="CopyFromReferenceColumn">EstadioID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fluxo Estádios\Pesquisa.Outputs[Saída Sem Correspondência de Pesquisa]"
+                  description="A saída de Pesquisa que trata as linhas sem entradas correspondentes no conjunto de dados de referência. Use essa saída quando a propriedade NoMatchBehavior estiver definida como &quot;Enviar as linhas sem entradas correspondentes para a saída sem correspondência&quot;."
+                  exclusionGroup="1"
+                  name="Saída Sem Correspondência de Pesquisa"
+                  synchronousInputId="Package\Fluxo Estádios\Pesquisa.Inputs[Entrada de Pesquisa]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fluxo Estádios\Pesquisa.Outputs[Saída de Erro de Pesquisa]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Pesquisa"
+                  synchronousInputId="Package\Fluxo Estádios\Pesquisa.Inputs[Entrada de Pesquisa]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Pesquisa.Outputs[Saída de Erro de Pesquisa].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Estádios\Pesquisa.Outputs[Saída de Erro de Pesquisa].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Pesquisa.Outputs[Saída de Erro de Pesquisa].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Estádios\Pesquisa.Outputs[Saída de Erro de Pesquisa].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fluxo Estádios\Primeira carga"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino OLE DB"
+              name="Primeira carga"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">[dbo].[DimEstadios]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se os valores fornecidos para colunas de identidade serão copiados no destino. Se false, os valores para colunas de identidade serão gerados automaticamente no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se as colunas que contêm null terão null inserido no destino. Se false, as colunas que contêm null terão seus valores padrão inseridos no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica as opções a serem usadas com o carregamento rápido. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica quando confirmações são emitidas durante a inserção de dados. Um valor de 0 especifica que uma confirmação será emitida ao final da inserção de dados. Aplicável somente se o carregamento rápido estiver ativado."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fluxo Estádios\Primeira carga.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[127.0.0.1.Data_mart.SA]"
+                  connectionManagerRefId="Package.ConnectionManagers[127.0.0.1.Data_mart.SA]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fluxo Estádios\Primeira carga.Inputs[Entrada de Destino OLE DB]"
+                  errorOrTruncationOperation="Inserir"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de Destino OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fluxo Estádios\Primeira carga.Inputs[Entrada de Destino OLE DB].Columns[Nome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="Nome"
+                      externalMetadataColumnId="Package\Fluxo Estádios\Primeira carga.Inputs[Entrada de Destino OLE DB].ExternalColumns[Nome]"
+                      lineageId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Nome]" />
+                    <inputColumn
+                      refId="Package\Fluxo Estádios\Primeira carga.Inputs[Entrada de Destino OLE DB].Columns[Capacidade]"
+                      cachedDataType="i4"
+                      cachedName="Capacidade"
+                      externalMetadataColumnId="Package\Fluxo Estádios\Primeira carga.Inputs[Entrada de Destino OLE DB].ExternalColumns[Capacidade]"
+                      lineageId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Capacidade]" />
+                    <inputColumn
+                      refId="Package\Fluxo Estádios\Primeira carga.Inputs[Entrada de Destino OLE DB].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\Fluxo Estádios\Primeira carga.Inputs[Entrada de Destino OLE DB].ExternalColumns[EstadioID]"
+                      lineageId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\Fluxo Estádios\Primeira carga.Inputs[Entrada de Destino OLE DB].Columns[DataInicioVigencia]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataInicioVigencia"
+                      externalMetadataColumnId="Package\Fluxo Estádios\Primeira carga.Inputs[Entrada de Destino OLE DB].ExternalColumns[DataInicioVigencia]"
+                      lineageId="Package\Fluxo Estádios\Transform Novo.Outputs[Saída de Coluna Derivada].Columns[DataInicioVigencia]" />
+                    <inputColumn
+                      refId="Package\Fluxo Estádios\Primeira carga.Inputs[Entrada de Destino OLE DB].Columns[Ativo]"
+                      cachedDataType="bool"
+                      cachedName="Ativo"
+                      externalMetadataColumnId="Package\Fluxo Estádios\Primeira carga.Inputs[Entrada de Destino OLE DB].ExternalColumns[Ativo]"
+                      lineageId="Package\Fluxo Estádios\Transform Novo.Outputs[Saída de Coluna Derivada].Columns[Ativo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\Primeira carga.Inputs[Entrada de Destino OLE DB].ExternalColumns[EstadioSurrogateKey]"
+                      dataType="i4"
+                      name="EstadioSurrogateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\Primeira carga.Inputs[Entrada de Destino OLE DB].ExternalColumns[EstadioID]"
+                      dataType="i4"
+                      name="EstadioID" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\Primeira carga.Inputs[Entrada de Destino OLE DB].ExternalColumns[Nome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="Nome" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\Primeira carga.Inputs[Entrada de Destino OLE DB].ExternalColumns[Capacidade]"
+                      dataType="i4"
+                      name="Capacidade" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\Primeira carga.Inputs[Entrada de Destino OLE DB].ExternalColumns[DataInicioVigencia]"
+                      dataType="dbTimeStamp"
+                      name="DataInicioVigencia" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\Primeira carga.Inputs[Entrada de Destino OLE DB].ExternalColumns[DataFimVigencia]"
+                      dataType="dbTimeStamp"
+                      name="DataFimVigencia" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\Primeira carga.Inputs[Entrada de Destino OLE DB].ExternalColumns[Ativo]"
+                      dataType="bool"
+                      name="Ativo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fluxo Estádios\Primeira carga.Outputs[Saída de Erro de Destino OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Destino OLE DB"
+                  synchronousInputId="Package\Fluxo Estádios\Primeira carga.Inputs[Entrada de Destino OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Primeira carga.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Estádios\Primeira carga.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Primeira carga.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Estádios\Primeira carga.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fluxo Estádios\SCD Tipo 2"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino OLE DB"
+              name="SCD Tipo 2"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">[dbo].[Estadios_Insert]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se os valores fornecidos para colunas de identidade serão copiados no destino. Se false, os valores para colunas de identidade serão gerados automaticamente no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se as colunas que contêm null terão null inserido no destino. Se false, as colunas que contêm null terão seus valores padrão inseridos no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica as opções a serem usadas com o carregamento rápido. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica quando confirmações são emitidas durante a inserção de dados. Um valor de 0 especifica que uma confirmação será emitida ao final da inserção de dados. Aplicável somente se o carregamento rápido estiver ativado."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fluxo Estádios\SCD Tipo 2.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[127.0.0.1.Data_mart.SA]"
+                  connectionManagerRefId="Package.ConnectionManagers[127.0.0.1.Data_mart.SA]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fluxo Estádios\SCD Tipo 2.Inputs[Entrada de Destino OLE DB]"
+                  errorOrTruncationOperation="Inserir"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de Destino OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fluxo Estádios\SCD Tipo 2.Inputs[Entrada de Destino OLE DB].Columns[Nome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="Nome"
+                      externalMetadataColumnId="Package\Fluxo Estádios\SCD Tipo 2.Inputs[Entrada de Destino OLE DB].ExternalColumns[Nome]"
+                      lineageId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Nome]" />
+                    <inputColumn
+                      refId="Package\Fluxo Estádios\SCD Tipo 2.Inputs[Entrada de Destino OLE DB].Columns[Capacidade]"
+                      cachedDataType="i4"
+                      cachedName="Capacidade"
+                      externalMetadataColumnId="Package\Fluxo Estádios\SCD Tipo 2.Inputs[Entrada de Destino OLE DB].ExternalColumns[Capacidade]"
+                      lineageId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Capacidade]" />
+                    <inputColumn
+                      refId="Package\Fluxo Estádios\SCD Tipo 2.Inputs[Entrada de Destino OLE DB].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\Fluxo Estádios\SCD Tipo 2.Inputs[Entrada de Destino OLE DB].ExternalColumns[EstadioID]"
+                      lineageId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\SCD Tipo 2.Inputs[Entrada de Destino OLE DB].ExternalColumns[EstadioID]"
+                      dataType="i4"
+                      name="EstadioID" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\SCD Tipo 2.Inputs[Entrada de Destino OLE DB].ExternalColumns[Nome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="Nome" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\SCD Tipo 2.Inputs[Entrada de Destino OLE DB].ExternalColumns[Capacidade]"
+                      dataType="i4"
+                      name="Capacidade" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\SCD Tipo 2.Inputs[Entrada de Destino OLE DB].ExternalColumns[DataInicioVigencia]"
+                      dataType="dbTimeStamp"
+                      name="DataInicioVigencia" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\SCD Tipo 2.Inputs[Entrada de Destino OLE DB].ExternalColumns[DataFimVigencia]"
+                      dataType="dbTimeStamp"
+                      name="DataFimVigencia" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Estádios\SCD Tipo 2.Inputs[Entrada de Destino OLE DB].ExternalColumns[Ativo]"
+                      dataType="bool"
+                      name="Ativo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fluxo Estádios\SCD Tipo 2.Outputs[Saída de Erro de Destino OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Destino OLE DB"
+                  synchronousInputId="Package\Fluxo Estádios\SCD Tipo 2.Inputs[Entrada de Destino OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\SCD Tipo 2.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Estádios\SCD Tipo 2.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\SCD Tipo 2.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Estádios\SCD Tipo 2.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fluxo Estádios\Transform Novo"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Coluna Derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;0"
+              description="Cria novos valores de coluna aplicando expressões a colunas de entrada da transformação. Crie novas colunas ou substitua as existentes. Por exemplo, concatene os valores das colunas 'first name' e 'last name' para formar uma coluna 'full name'."
+              name="Transform Novo"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Fluxo Estádios\Transform Novo.Inputs[Entrada de Coluna Derivada]"
+                  description="Entrada para a Transformação Coluna Derivada"
+                  name="Entrada de Coluna Derivada">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fluxo Estádios\Transform Novo.Outputs[Saída de Coluna Derivada]"
+                  description="Saída Padrão da Transformação Coluna Derivada"
+                  exclusionGroup="1"
+                  name="Saída de Coluna Derivada"
+                  synchronousInputId="Package\Fluxo Estádios\Transform Novo.Inputs[Entrada de Coluna Derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Transform Novo.Outputs[Saída de Coluna Derivada].Columns[DataInicioVigencia]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computação"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Fluxo Estádios\Transform Novo.Outputs[Saída de Coluna Derivada].Columns[DataInicioVigencia]"
+                      name="DataInicioVigencia"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão de Coluna Derivada"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão Amigável de Coluna Derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Transform Novo.Outputs[Saída de Coluna Derivada].Columns[Ativo]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Computação"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Fluxo Estádios\Transform Novo.Outputs[Saída de Coluna Derivada].Columns[Ativo]"
+                      name="Ativo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão de Coluna Derivada"
+                          name="Expression"> TRUE </property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão Amigável de Coluna Derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression"> TRUE </property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fluxo Estádios\Transform Novo.Outputs[Saída de Erro de Coluna Derivada]"
+                  description="Saída de Erro da Transformação Coluna Derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Coluna Derivada"
+                  synchronousInputId="Package\Fluxo Estádios\Transform Novo.Inputs[Entrada de Coluna Derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Transform Novo.Outputs[Saída de Erro de Coluna Derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Estádios\Transform Novo.Outputs[Saída de Erro de Coluna Derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Transform Novo.Outputs[Saída de Erro de Coluna Derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Estádios\Transform Novo.Outputs[Saída de Erro de Coluna Derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fluxo Estádios\Transform Novo 2"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Coluna Derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;0"
+              description="Cria novos valores de coluna aplicando expressões a colunas de entrada da transformação. Crie novas colunas ou substitua as existentes. Por exemplo, concatene os valores das colunas 'first name' e 'last name' para formar uma coluna 'full name'."
+              name="Transform Novo 2"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Fluxo Estádios\Transform Novo 2.Inputs[Entrada de Coluna Derivada]"
+                  description="Entrada para a Transformação Coluna Derivada"
+                  name="Entrada de Coluna Derivada">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fluxo Estádios\Transform Novo 2.Outputs[Saída de Coluna Derivada]"
+                  description="Saída Padrão da Transformação Coluna Derivada"
+                  exclusionGroup="1"
+                  name="Saída de Coluna Derivada"
+                  synchronousInputId="Package\Fluxo Estádios\Transform Novo 2.Inputs[Entrada de Coluna Derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Transform Novo 2.Outputs[Saída de Coluna Derivada].Columns[DataInicioVigencia]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computação"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Fluxo Estádios\Transform Novo 2.Outputs[Saída de Coluna Derivada].Columns[DataInicioVigencia]"
+                      name="DataInicioVigencia"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão de Coluna Derivada"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão Amigável de Coluna Derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Transform Novo 2.Outputs[Saída de Coluna Derivada].Columns[Ativo]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Computação"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Fluxo Estádios\Transform Novo 2.Outputs[Saída de Coluna Derivada].Columns[Ativo]"
+                      name="Ativo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão de Coluna Derivada"
+                          name="Expression"> TRUE </property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão Amigável de Coluna Derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression"> TRUE </property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fluxo Estádios\Transform Novo 2.Outputs[Saída de Erro de Coluna Derivada]"
+                  description="Saída de Erro da Transformação Coluna Derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Coluna Derivada"
+                  synchronousInputId="Package\Fluxo Estádios\Transform Novo 2.Inputs[Entrada de Coluna Derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Transform Novo 2.Outputs[Saída de Erro de Coluna Derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Estádios\Transform Novo 2.Outputs[Saída de Erro de Coluna Derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fluxo Estádios\Transform Novo 2.Outputs[Saída de Erro de Coluna Derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Estádios\Transform Novo 2.Outputs[Saída de Erro de Coluna Derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Fluxo Estádios.Paths[Novo registro]"
+              endId="Package\Fluxo Estádios\Transform Novo 2.Inputs[Entrada de Coluna Derivada]"
+              name="Novo registro"
+              startId="Package\Fluxo Estádios\Divisão Condicional.Outputs[Novo registro]" />
+            <path
+              refId="Package\Fluxo Estádios.Paths[Saída de Coluna Derivada]"
+              endId="Package\Fluxo Estádios\Primeira carga.Inputs[Entrada de Destino OLE DB]"
+              name="Saída de Coluna Derivada"
+              startId="Package\Fluxo Estádios\Transform Novo.Outputs[Saída de Coluna Derivada]" />
+            <path
+              refId="Package\Fluxo Estádios.Paths[Saída de Coluna Derivada1]"
+              endId="Package\Fluxo Estádios\Novo Registro.Inputs[Entrada de Destino OLE DB]"
+              name="Saída de Coluna Derivada"
+              startId="Package\Fluxo Estádios\Transform Novo 2.Outputs[Saída de Coluna Derivada]" />
+            <path
+              refId="Package\Fluxo Estádios.Paths[Saída de Correspondência de Pesquisa]"
+              endId="Package\Fluxo Estádios\Divisão Condicional.Inputs[Entrada de Divisão Condicional]"
+              name="Saída de Correspondência de Pesquisa"
+              startId="Package\Fluxo Estádios\Pesquisa.Outputs[Saída de Correspondência de Pesquisa]" />
+            <path
+              refId="Package\Fluxo Estádios.Paths[Saída de Origem OLE DB]"
+              endId="Package\Fluxo Estádios\Pesquisa.Inputs[Entrada de Pesquisa]"
+              name="Saída de Origem OLE DB"
+              startId="Package\Fluxo Estádios\Origem OLE DB.Outputs[Saída de Origem OLE DB]" />
+            <path
+              refId="Package\Fluxo Estádios.Paths[Saída Sem Correspondência de Pesquisa]"
+              endId="Package\Fluxo Estádios\Transform Novo.Inputs[Entrada de Coluna Derivada]"
+              name="Saída Sem Correspondência de Pesquisa"
+              startId="Package\Fluxo Estádios\Pesquisa.Outputs[Saída Sem Correspondência de Pesquisa]" />
+            <path
+              refId="Package\Fluxo Estádios.Paths[SCD Tipo 2]"
+              endId="Package\Fluxo Estádios\SCD Tipo 2.Inputs[Entrada de Destino OLE DB]"
+              name="SCD Tipo 2"
+              startId="Package\Fluxo Estádios\Divisão Condicional.Outputs[SCD Tipo 2]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fluxo Países"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarefa Fluxo de Dados"
+      DTS:Disabled="True"
+      DTS:DTSID="{493DD73E-DD54-4EC8-98C3-B923075F7C58}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fluxo Países"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Fluxo Países\Destino OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino OLE DB"
+              name="Destino OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">[dbo].[DimPaises]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se os valores fornecidos para colunas de identidade serão copiados no destino. Se false, os valores para colunas de identidade serão gerados automaticamente no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se as colunas que contêm null terão null inserido no destino. Se false, as colunas que contêm null terão seus valores padrão inseridos no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica as opções a serem usadas com o carregamento rápido. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica quando confirmações são emitidas durante a inserção de dados. Um valor de 0 especifica que uma confirmação será emitida ao final da inserção de dados. Aplicável somente se o carregamento rápido estiver ativado."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fluxo Países\Destino OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[127.0.0.1.Data_mart.SA]"
+                  connectionManagerRefId="Package.ConnectionManagers[127.0.0.1.Data_mart.SA]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fluxo Países\Destino OLE DB.Inputs[Entrada de Destino OLE DB]"
+                  errorOrTruncationOperation="Inserir"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de Destino OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fluxo Países\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[PaisID]"
+                      cachedDataType="i4"
+                      cachedName="PaisID"
+                      externalMetadataColumnId="Package\Fluxo Países\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[PaisID]"
+                      lineageId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Origem OLE DB].Columns[PaisID]" />
+                    <inputColumn
+                      refId="Package\Fluxo Países\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[Descr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Descr"
+                      externalMetadataColumnId="Package\Fluxo Países\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Nome]"
+                      lineageId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Origem OLE DB].Columns[Descr]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Países\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[PaisSurrogateKey]"
+                      dataType="i4"
+                      name="PaisSurrogateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Países\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[PaisID]"
+                      dataType="i4"
+                      name="PaisID" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Países\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Nome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nome" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fluxo Países\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Destino OLE DB"
+                  synchronousInputId="Package\Fluxo Países\Destino OLE DB.Inputs[Entrada de Destino OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo Países\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Países\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fluxo Países\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Países\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fluxo Países\Divisão Condicional"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Divisão Condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;0"
+              description="Encaminha colunas de dados para saídas diferentes, dependendo do conteúdo dos dados. Use condições (expressões do SSIS) para especificar quais linhas são encaminhadas. Por exemplo, separe os registros que precisam ser limpos daqueles que estão prontos para serem carregados ou encaminhe somente um subconjunto de registros."
+              name="Divisão Condicional"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Fluxo Países\Divisão Condicional.Inputs[Entrada de Divisão Condicional]"
+                  description="Entrada para a Transformação Divisão Condicional"
+                  name="Entrada de Divisão Condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fluxo Países\Divisão Condicional.Inputs[Entrada de Divisão Condicional].Columns[Descr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Descr"
+                      lineageId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Origem OLE DB].Columns[Descr]" />
+                    <inputColumn
+                      refId="Package\Fluxo Países\Divisão Condicional.Inputs[Entrada de Divisão Condicional].Columns[PaisID]"
+                      cachedDataType="i4"
+                      cachedName="PaisID"
+                      lineageId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Origem OLE DB].Columns[PaisID]" />
+                    <inputColumn
+                      refId="Package\Fluxo Países\Divisão Condicional.Inputs[Entrada de Divisão Condicional].Columns[Dest_Nome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Dest_Nome"
+                      lineageId="Package\Fluxo Países\Pesquisa.Outputs[Saída de Correspondência de Pesquisa].Columns[Dest_Nome]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fluxo Países\Divisão Condicional.Outputs[Novo registro]"
+                  description="Saída 1 da Transformação Divisão Condicional"
+                  errorOrTruncationOperation="Computação"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Novo registro"
+                  synchronousInputId="Package\Fluxo Países\Divisão Condicional.Inputs[Entrada de Divisão Condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica a expressão. Essa versão da expressão usa identificadores de linhagem, em vez de nomes de colunas."
+                      name="Expression">[ISNULL](#{Package\Fluxo Países\Origem Paises.Outputs[Saída de Origem OLE DB].Columns[PaisID]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica a versão amigável da expressão. Essa versão de expressão usa nomes de colunas."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(PaisID)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica a posição da condição na lista de condições que a transformação avalia. A ordem de avaliação é do menor para o maior valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fluxo Países\Divisão Condicional.Outputs[SCD Tipo 1]"
+                  description="Saída 2 da Transformação Divisão Condicional"
+                  errorOrTruncationOperation="Computação"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="SCD Tipo 1"
+                  synchronousInputId="Package\Fluxo Países\Divisão Condicional.Inputs[Entrada de Divisão Condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica a expressão. Essa versão da expressão usa identificadores de linhagem, em vez de nomes de colunas."
+                      name="Expression">#{Package\Fluxo Países\Origem Paises.Outputs[Saída de Origem OLE DB].Columns[Descr]} != #{Package\Fluxo Países\Pesquisa.Outputs[Saída de Correspondência de Pesquisa].Columns[Dest_Nome]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica a versão amigável da expressão. Essa versão de expressão usa nomes de colunas."
+                      expressionType="Notify"
+                      name="FriendlyExpression">Descr != Dest_Nome</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica a posição da condição na lista de condições que a transformação avalia. A ordem de avaliação é do menor para o maior valor."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fluxo Países\Divisão Condicional.Outputs[Saída Padrão de Divisão Condicional]"
+                  description="Saída Padrão da Transformação Divisão Condicional"
+                  exclusionGroup="1"
+                  name="Saída Padrão de Divisão Condicional"
+                  synchronousInputId="Package\Fluxo Países\Divisão Condicional.Inputs[Entrada de Divisão Condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fluxo Países\Divisão Condicional.Outputs[Saída de Erro de Divisão Condicional]"
+                  description="Saída de Erro da Transformação Divisão Condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Divisão Condicional"
+                  synchronousInputId="Package\Fluxo Países\Divisão Condicional.Inputs[Entrada de Divisão Condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo Países\Divisão Condicional.Outputs[Saída de Erro de Divisão Condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Países\Divisão Condicional.Outputs[Saída de Erro de Divisão Condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fluxo Países\Divisão Condicional.Outputs[Saída de Erro de Divisão Condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Países\Divisão Condicional.Outputs[Saída de Erro de Divisão Condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fluxo Países\Novo País"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino OLE DB"
+              name="Novo País"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">[dbo].[DimPaises]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se os valores fornecidos para colunas de identidade serão copiados no destino. Se false, os valores para colunas de identidade serão gerados automaticamente no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se as colunas que contêm null terão null inserido no destino. Se false, as colunas que contêm null terão seus valores padrão inseridos no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica as opções a serem usadas com o carregamento rápido. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica quando confirmações são emitidas durante a inserção de dados. Um valor de 0 especifica que uma confirmação será emitida ao final da inserção de dados. Aplicável somente se o carregamento rápido estiver ativado."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fluxo Países\Novo País.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[127.0.0.1.Data_mart.SA]"
+                  connectionManagerRefId="Package.ConnectionManagers[127.0.0.1.Data_mart.SA]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fluxo Países\Novo País.Inputs[Entrada de Destino OLE DB]"
+                  errorOrTruncationOperation="Inserir"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de Destino OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fluxo Países\Novo País.Inputs[Entrada de Destino OLE DB].Columns[PaisID]"
+                      cachedDataType="i4"
+                      cachedName="PaisID"
+                      externalMetadataColumnId="Package\Fluxo Países\Novo País.Inputs[Entrada de Destino OLE DB].ExternalColumns[PaisID]"
+                      lineageId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Origem OLE DB].Columns[PaisID]" />
+                    <inputColumn
+                      refId="Package\Fluxo Países\Novo País.Inputs[Entrada de Destino OLE DB].Columns[Descr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Descr"
+                      externalMetadataColumnId="Package\Fluxo Países\Novo País.Inputs[Entrada de Destino OLE DB].ExternalColumns[Nome]"
+                      lineageId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Origem OLE DB].Columns[Descr]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Países\Novo País.Inputs[Entrada de Destino OLE DB].ExternalColumns[PaisSurrogateKey]"
+                      dataType="i4"
+                      name="PaisSurrogateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Países\Novo País.Inputs[Entrada de Destino OLE DB].ExternalColumns[PaisID]"
+                      dataType="i4"
+                      name="PaisID" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Países\Novo País.Inputs[Entrada de Destino OLE DB].ExternalColumns[Nome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nome" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fluxo Países\Novo País.Outputs[Saída de Erro de Destino OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Destino OLE DB"
+                  synchronousInputId="Package\Fluxo Países\Novo País.Inputs[Entrada de Destino OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo Países\Novo País.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Países\Novo País.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fluxo Países\Novo País.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Países\Novo País.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fluxo Países\Origem Paises"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origem OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;7"
+              description="Origem OLE DB"
+              name="Origem Paises"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">[dbo].[Paises]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="A variável que contém o comando SQL a ser executado."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Os mapeamentos entre os parâmetros no comando SQL e as variáveis."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fluxo Países\Origem Paises.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[127.0.0.1.SA]"
+                  connectionManagerRefId="Package.ConnectionManagers[127.0.0.1.SA]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Origem OLE DB]"
+                  name="Saída de Origem OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Origem OLE DB].Columns[Descr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Origem OLE DB].ExternalColumns[Descr]"
+                      length="50"
+                      lineageId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Origem OLE DB].Columns[Descr]"
+                      name="Descr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Origem OLE DB].Columns[PaisID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Origem OLE DB].ExternalColumns[ID]"
+                      lineageId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Origem OLE DB].Columns[PaisID]"
+                      name="PaisID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Origem OLE DB].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Origem OLE DB].ExternalColumns[Descr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Descr" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Erro de Origem OLE DB]"
+                  isErrorOut="true"
+                  name="Saída de Erro de Origem OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Erro de Origem OLE DB].Columns[Descr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Erro de Origem OLE DB].Columns[Descr]"
+                      name="Descr" />
+                    <outputColumn
+                      refId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Erro de Origem OLE DB].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Erro de Origem OLE DB].Columns[ID]"
+                      name="ID" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fluxo Países\Pesquisa"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Pesquisa;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;6"
+              description="Une colunas adicionais aos fluxos de dados pesquisando valores de uma tabela. Por exemplo, una à coluna 'employee id' a tabela de funcionários para obter 'hire date' e 'employee name'. Essa transformação é recomendada quando a tabela de pesquisa está de acordo com a memória."
+              name="Pesquisa"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica a instrução SQL que gera a tabela de pesquisa."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimPaises]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica uma instrução SQL que usa parâmetros para gerar a tabela de pesquisa."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimPaises]) [refTable]
+where [refTable].[PaisID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o tipo de conexão usado para acessar o conjunto de dados de referência."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o tipo de cache da tabela de pesquisa."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica como a transformação Pesquisa trata as linhas sem entradas correspondentes no conjunto de dados de referência."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a porcentagem do cache alocada para linhas sem entradas correspondentes no conjunto de dados de referência."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso Máximo de Memória para o Cache de Referência em uma plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso Máximo de Memória para o Cache de Referência em uma plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica se os metadados de referência em um formato XML devem ser referenciados."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="PaisSurrogateKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PaisID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Nome" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica a lista de identificadores de linhagem mapeados para os parâmetros usados pela instrução SQL na propriedade SQLCommand. As entradas na lista são separadas por ponto e vírgulas."
+                  name="ParameterMap">#{Package\Fluxo Países\Origem Paises.Outputs[Saída de Origem OLE DB].Columns[PaisID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina se as chaves duplicadas nos dados de referência devem ser tratadas como erros quando o modo de cache cheio é usado."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fluxo Países\Pesquisa.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[127.0.0.1.Data_mart.SA]"
+                  connectionManagerRefId="Package.ConnectionManagers[127.0.0.1.Data_mart.SA]"
+                  description="O gerenciador de conexões usado para acessar dados de pesquisa."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fluxo Países\Pesquisa.Inputs[Entrada de Pesquisa]"
+                  name="Entrada de Pesquisa">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fluxo Países\Pesquisa.Inputs[Entrada de Pesquisa].Columns[PaisID]"
+                      cachedDataType="i4"
+                      cachedName="PaisID"
+                      lineageId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Origem OLE DB].Columns[PaisID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica a coluna na tabela de referência que uma coluna une."
+                          name="JoinToReferenceColumn">PaisID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica a coluna na tabela de referência a partir da qual uma coluna é copiada."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fluxo Países\Pesquisa.Outputs[Saída de Correspondência de Pesquisa]"
+                  errorOrTruncationOperation="Pesquisa"
+                  exclusionGroup="1"
+                  name="Saída de Correspondência de Pesquisa"
+                  synchronousInputId="Package\Fluxo Países\Pesquisa.Inputs[Entrada de Pesquisa]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo Países\Pesquisa.Outputs[Saída de Correspondência de Pesquisa].Columns[Dest_Nome]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copiar Coluna"
+                      length="50"
+                      lineageId="Package\Fluxo Países\Pesquisa.Outputs[Saída de Correspondência de Pesquisa].Columns[Dest_Nome]"
+                      name="Dest_Nome"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica a coluna na tabela de referência a partir da qual uma coluna é copiada."
+                          name="CopyFromReferenceColumn">Nome</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fluxo Países\Pesquisa.Outputs[Saída de Correspondência de Pesquisa].Columns[PaisID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copiar Coluna"
+                      lineageId="Package\Fluxo Países\Pesquisa.Outputs[Saída de Correspondência de Pesquisa].Columns[PaisID]"
+                      name="PaisID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica a coluna na tabela de referência a partir da qual uma coluna é copiada."
+                          name="CopyFromReferenceColumn">PaisID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fluxo Países\Pesquisa.Outputs[Saída Sem Correspondência de Pesquisa]"
+                  description="A saída de Pesquisa que trata as linhas sem entradas correspondentes no conjunto de dados de referência. Use essa saída quando a propriedade NoMatchBehavior estiver definida como &quot;Enviar as linhas sem entradas correspondentes para a saída sem correspondência&quot;."
+                  exclusionGroup="1"
+                  name="Saída Sem Correspondência de Pesquisa"
+                  synchronousInputId="Package\Fluxo Países\Pesquisa.Inputs[Entrada de Pesquisa]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fluxo Países\Pesquisa.Outputs[Saída de Erro de Pesquisa]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Pesquisa"
+                  synchronousInputId="Package\Fluxo Países\Pesquisa.Inputs[Entrada de Pesquisa]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo Países\Pesquisa.Outputs[Saída de Erro de Pesquisa].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Países\Pesquisa.Outputs[Saída de Erro de Pesquisa].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fluxo Países\Pesquisa.Outputs[Saída de Erro de Pesquisa].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Países\Pesquisa.Outputs[Saída de Erro de Pesquisa].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fluxo Países\SCD Tipo 1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino OLE DB"
+              name="SCD Tipo 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">[dbo].[Paises_Update]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se os valores fornecidos para colunas de identidade serão copiados no destino. Se false, os valores para colunas de identidade serão gerados automaticamente no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se as colunas que contêm null terão null inserido no destino. Se false, as colunas que contêm null terão seus valores padrão inseridos no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica as opções a serem usadas com o carregamento rápido. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica quando confirmações são emitidas durante a inserção de dados. Um valor de 0 especifica que uma confirmação será emitida ao final da inserção de dados. Aplicável somente se o carregamento rápido estiver ativado."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fluxo Países\SCD Tipo 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[127.0.0.1.Data_mart.SA]"
+                  connectionManagerRefId="Package.ConnectionManagers[127.0.0.1.Data_mart.SA]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fluxo Países\SCD Tipo 1.Inputs[Entrada de Destino OLE DB]"
+                  errorOrTruncationOperation="Inserir"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de Destino OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fluxo Países\SCD Tipo 1.Inputs[Entrada de Destino OLE DB].Columns[PaisID]"
+                      cachedDataType="i4"
+                      cachedName="PaisID"
+                      externalMetadataColumnId="Package\Fluxo Países\SCD Tipo 1.Inputs[Entrada de Destino OLE DB].ExternalColumns[PaisID]"
+                      lineageId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Origem OLE DB].Columns[PaisID]" />
+                    <inputColumn
+                      refId="Package\Fluxo Países\SCD Tipo 1.Inputs[Entrada de Destino OLE DB].Columns[Descr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Descr"
+                      externalMetadataColumnId="Package\Fluxo Países\SCD Tipo 1.Inputs[Entrada de Destino OLE DB].ExternalColumns[Nome]"
+                      lineageId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Origem OLE DB].Columns[Descr]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Países\SCD Tipo 1.Inputs[Entrada de Destino OLE DB].ExternalColumns[PaisID]"
+                      dataType="i4"
+                      name="PaisID" />
+                    <externalMetadataColumn
+                      refId="Package\Fluxo Países\SCD Tipo 1.Inputs[Entrada de Destino OLE DB].ExternalColumns[Nome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nome" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fluxo Países\SCD Tipo 1.Outputs[Saída de Erro de Destino OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Destino OLE DB"
+                  synchronousInputId="Package\Fluxo Países\SCD Tipo 1.Inputs[Entrada de Destino OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo Países\SCD Tipo 1.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Países\SCD Tipo 1.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fluxo Países\SCD Tipo 1.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo Países\SCD Tipo 1.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Fluxo Países.Paths[Novo registro]"
+              endId="Package\Fluxo Países\Novo País.Inputs[Entrada de Destino OLE DB]"
+              name="Novo registro"
+              startId="Package\Fluxo Países\Divisão Condicional.Outputs[Novo registro]" />
+            <path
+              refId="Package\Fluxo Países.Paths[Saída de Correspondência de Pesquisa]"
+              endId="Package\Fluxo Países\Divisão Condicional.Inputs[Entrada de Divisão Condicional]"
+              name="Saída de Correspondência de Pesquisa"
+              startId="Package\Fluxo Países\Pesquisa.Outputs[Saída de Correspondência de Pesquisa]" />
+            <path
+              refId="Package\Fluxo Países.Paths[Saída de Origem OLE DB]"
+              endId="Package\Fluxo Países\Pesquisa.Inputs[Entrada de Pesquisa]"
+              name="Saída de Origem OLE DB"
+              startId="Package\Fluxo Países\Origem Paises.Outputs[Saída de Origem OLE DB]" />
+            <path
+              refId="Package\Fluxo Países.Paths[Saída Sem Correspondência de Pesquisa]"
+              endId="Package\Fluxo Países\Destino OLE DB.Inputs[Entrada de Destino OLE DB]"
+              name="Saída Sem Correspondência de Pesquisa"
+              startId="Package\Fluxo Países\Pesquisa.Outputs[Saída Sem Correspondência de Pesquisa]" />
+            <path
+              refId="Package\Fluxo Países.Paths[SCD Tipo 1]"
+              endId="Package\Fluxo Países\SCD Tipo 1.Inputs[Entrada de Destino OLE DB]"
+              name="SCD Tipo 1"
+              startId="Package\Fluxo Países\Divisão Condicional.Outputs[SCD Tipo 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update SCD Tipo 1 Países"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:Disabled="True"
+      DTS:DTSID="{9E77103B-8970-4A20-A089-E51A38D0448A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update SCD Tipo 1 Países"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0A7221B1-2DB0-402F-8FA4-3B8BDB26E7F9}"
+          SQLTask:SqlStatementSource="update a&#xA;set a.Nome = b.Nome&#xA;from [dbo].[DimPaises] a inner join Paises_Update b&#xA;on a.PaisID = b.PaisID" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update SCD Tipo 2 Estádios"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarefa Fluxo de Dados"
+      DTS:DTSID="{CDB9D529-CEA1-4155-BE6C-7FD7EA8D7567}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update SCD Tipo 2 Estádios"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restrição]"
+      DTS:CreationName=""
+      DTS:DTSID="{67418D86-C342-4514-A051-38B63170B828}"
+      DTS:From="Package\Fluxo Países"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restrição"
+      DTS:To="Package\Update SCD Tipo 1 Países" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restrição 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{41123F59-B385-40E4-91D2-88D8EFB02F46}"
+      DTS:From="Package\DSA_Paises"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restrição 1"
+      DTS:To="Package\Fluxo Países" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restrição 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{7FD67EB8-DD79-4CDB-ADCE-88ECE8A4B10E}"
+      DTS:From="Package\DSA_Estádios"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restrição 2"
+      DTS:To="Package\Fluxo Estádios" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restrição 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{4DA78503-5DFA-453E-B854-764C39DABBC7}"
+      DTS:From="Package\Fluxo Estádios"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restrição 3"
+      DTS:To="Package\Update SCD Tipo 2 Estádios" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta seção CDATA contém as informações de layout do pacote. A seção inclui informações como coordenadas (x,y), largura e altura.-->
+<!--Se você editar manualmente esta seção e cometer algum erro, poderá excluí-la. -->
+<!--O pacote ainda poderá ser carregado normalmente, mas as informações de layout anteriores serão perdidas e o designer reorganizará automaticamente os elementos na superfície de design.-->
+<Objects
+  Version="8">
+  <!--Cada nó abaixo conterá propriedades que não afetam o comportamento em tempo de execução.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="145.6,41.6"
+          Id="Package\DSA_Estádios"
+          TopLeft="339.99998142322,30.3333331223991" />
+        <NodeLayout
+          Size="136.8,41.6"
+          Id="Package\DSA_Paises"
+          TopLeft="73.3333293265768,39.8666663894388" />
+        <NodeLayout
+          Size="146.4,41.6"
+          Id="Package\Fluxo Estádios"
+          TopLeft="329.999981969596,116.133332525757" />
+        <NodeLayout
+          Size="137.6,41.6"
+          Id="Package\Fluxo Países"
+          TopLeft="75.8333291899823,133.466665738556" />
+        <NodeLayout
+          Size="202.4,41.6"
+          Id="Package\Update SCD Tipo 1 Países"
+          TopLeft="55.8333302827347,220.999998463194" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restrição]"
+          TopLeft="144.633329189982,175.066665738556">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.4000010927523,45.9333327246381"
+              Start="0,0"
+              End="12.4000010927523,38.4333327246381">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.966666362319" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.966666362319"
+                    Point2="0,22.966666362319"
+                    Point3="4,22.966666362319" />
+                  <mssgle:LineSegment
+                    End="8.40000109275235,22.966666362319" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.40000109275235,22.966666362319"
+                    Point2="12.4000010927523,22.966666362319"
+                    Point3="12.4000010927523,26.966666362319" />
+                  <mssgle:LineSegment
+                    End="12.4000010927523,38.4333327246381" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restrição 1]"
+          TopLeft="143.18332925828,81.4666663894388">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.9999993491172"
+              Start="0,0"
+              End="0,44.4999993491172">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.4999993491172" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restrição 2]"
+          TopLeft="412.79998142322,71.9333331223991">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.59999945362404,44.1999994033579"
+              Start="0,0"
+              End="-9.59999945362404,36.6999994033579">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.0999997016789" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.0999997016789"
+                    Point2="0,22.0999997016789"
+                    Point3="-4,22.0999997016789" />
+                  <mssgle:LineSegment
+                    End="-5.59999945362404,22.0999997016789" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.59999945362404,22.0999997016789"
+                    Point2="-9.59999945362404,22.0999997016789"
+                    Point3="-9.59999945362404,26.0999997016789" />
+                  <mssgle:LineSegment
+                    End="-9.59999945362404,36.6999994033579" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="211.2,41.6"
+          Id="Package\Update SCD Tipo 2 Estádios"
+          TopLeft="331.6666485452,240.066664997273" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restrição 3]"
+          TopLeft="403.199981969596,157.733332525757">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34.0666665756038,82.333332471516"
+              Start="0,0"
+              End="34.0666665756038,74.833332471516">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.166666235758" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.166666235758"
+                    Point2="0,41.166666235758"
+                    Point3="4,41.166666235758" />
+                  <mssgle:LineSegment
+                    End="30.0666665756038,41.166666235758" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.0666665756038,41.166666235758"
+                    Point2="34.0666665756038,41.166666235758"
+                    Point3="34.0666665756038,45.166666235758" />
+                  <mssgle:LineSegment
+                    End="34.0666665756038,74.833332471516" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Fluxo Estádios">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Fluxo Estádios\Origem OLE DB"
+          TopLeft="301.999995499849,50.9999992400408" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\Fluxo Estádios\Transform Novo 2"
+          TopLeft="516.666638437246,227.555554189505" />
+        <NodeLayout
+          Size="132,41.6"
+          Id="Package\Fluxo Estádios\SCD Tipo 2"
+          TopLeft="312.037019988085,318.444442495814" />
+        <NodeLayout
+          Size="121.6,41.6"
+          Id="Package\Fluxo Estádios\Pesquisa"
+          TopLeft="317.499982652566,134.333332399196" />
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\Fluxo Estádios\Novo Registro"
+          TopLeft="718.518479260399,224.044443821686" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Fluxo Estádios\Transform Novo"
+          TopLeft="488.888862177179,135.111110387908" />
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\Fluxo Estádios\Divisão Condicional"
+          TopLeft="296.296280107381,234.866665033433" />
+        <NodeLayout
+          Size="146.4,41.6"
+          Id="Package\Fluxo Estádios\Primeira carga"
+          TopLeft="685.925888448587,128.17036947909" />
+        <EdgeLayout
+          Id="Package\Fluxo Estádios.Paths[Saída Sem Correspondência de Pesquisa]"
+          TopLeft="439.099982652566,155.522221393552">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="49.7888795246131,0"
+              Start="0,0"
+              End="42.2888795246131,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="42.2888795246131,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-68.4495836751935,5,179.188046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fluxo Estádios.Paths[Saída de Origem OLE DB]"
+          TopLeft="378.549989076207,92.5999992400408">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.7333331591553"
+              Start="0,0"
+              End="0,34.2333331591553">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.2333331591553" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fluxo Estádios.Paths[Saída de Correspondência de Pesquisa]"
+          TopLeft="379.698131379973,175.933332399196">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.9333326342371"
+              Start="0,0"
+              End="0,51.4333326342371">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.4333326342371" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-85.3740234375,19.6190100671185,170.748046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fluxo Estádios.Paths[Saída de Coluna Derivada1]"
+          TopLeft="678.266638437246,246.599999005596">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="40.2518408231535,0"
+              Start="0,0"
+              End="32.7518408231535,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="32.7518408231535,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fluxo Estádios.Paths[Saída de Coluna Derivada]"
+          TopLeft="641.688862177179,152.440739933499">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44.2370262714085,0"
+              Start="0,0"
+              End="36.7370262714085,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="36.7370262714085,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fluxo Estádios.Paths[Novo registro]"
+          TopLeft="465.896280107381,252.011109611469">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="50.7703583298645,0"
+              Start="0,0"
+              End="43.2703583298645,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="43.2703583298645,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8.43185208506775,5,60.1340625,11.384765625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fluxo Estádios.Paths[SCD Tipo 2]"
+          TopLeft="379.566650047733,276.466665033433">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.9777774623807"
+              Start="0,0"
+              End="0,34.4777774623807">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.4777774623807" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.17677734375,11.5220918561904,50.3535546875,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fluxo Estádios\Origem OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fluxo Estádios\SCD Tipo 2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fluxo Estádios\Pesquisa">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimEstadios]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fluxo Estádios\Novo Registro">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fluxo Estádios\Primeira carga">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Fluxo Países">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="146.4,41.6"
+          Id="Package\Fluxo Países\Origem Paises"
+          TopLeft="220.1,5.49999999999984" />
+        <NodeLayout
+          Size="132,41.6"
+          Id="Package\Fluxo Países\SCD Tipo 1"
+          TopLeft="369.99999448657,282.181814172051" />
+        <NodeLayout
+          Size="125.6,41.6"
+          Id="Package\Fluxo Países\Novo País"
+          TopLeft="122.727270898494,281.818177618764" />
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\Fluxo Países\Divisão Condicional"
+          TopLeft="231.499996632338,202.499997064471" />
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Fluxo Países\Destino OLE DB"
+          TopLeft="521.818174042485,101.818180300973" />
+        <NodeLayout
+          Size="121.6,41.6"
+          Id="Package\Fluxo Países\Pesquisa"
+          TopLeft="259.49999666214,91.499999165535" />
+        <EdgeLayout
+          Id="Package\Fluxo Países.Paths[Saída de Origem OLE DB]"
+          TopLeft="293.3,47.0999999999998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26.9999966621397,44.3999991655351"
+              Start="0,0"
+              End="26.9999966621397,36.8999991655351">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.1999995827676" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.1999995827676"
+                    Point2="0,22.1999995827676"
+                    Point3="4,22.1999995827676" />
+                  <mssgle:LineSegment
+                    End="22.9999966621397,22.1999995827676" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.9999966621397,22.1999995827676"
+                    Point2="26.9999966621397,22.1999995827676"
+                    Point3="26.9999966621397,26.1999995827676" />
+                  <mssgle:LineSegment
+                    End="26.9999966621397,36.8999991655351" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fluxo Países.Paths[Saída de Correspondência de Pesquisa]"
+          TopLeft="318.299996647239,133.099999165535">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69.3999978989363"
+              Start="0,0"
+              End="0,61.8999978989363">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.8999978989363" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-85.3740234375,24.8523426994681,170.748046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fluxo Países.Paths[Novo registro]"
+          TopLeft="316.299996632338,244.099997064471">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-130.772725733844,37.7181805542925"
+              Start="0,0"
+              End="-130.772725733844,30.2181805542925">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.8590902771462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.8590902771462"
+                    Point2="0,18.8590902771462"
+                    Point3="-4,18.8590902771462" />
+                  <mssgle:LineSegment
+                    End="-126.772725733844,18.8590902771462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-126.772725733844,18.8590902771462"
+                    Point2="-130.772725733844,18.8590902771462"
+                    Point3="-130.772725733844,22.8590902771462" />
+                  <mssgle:LineSegment
+                    End="-130.772725733844,30.2181805542925" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-95.4533941169219,23.8590902771462,60.1340625,11.384765625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fluxo Países.Paths[SCD Tipo 1]"
+          TopLeft="343.233329965671,244.099997064471">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="92.7666645208994,38.0818171075799"
+              Start="0,0"
+              End="92.7666645208994,30.5818171075799">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.4462697427006" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.4462697427006"
+                    Point2="0,15.4462697427006"
+                    Point3="4,15.4462697427006" />
+                  <mssgle:LineSegment
+                    End="88.7666645208994,15.4462697427006" />
+                  <mssgle:CubicBezierSegment
+                    Point1="88.7666645208994,15.4462697427006"
+                    Point2="92.7666645208994,15.4462697427006"
+                    Point3="92.7666645208994,19.4462697427006" />
+                  <mssgle:LineSegment
+                    End="92.7666645208994,30.5818171075799" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="21.3921017916997,20.4462697427006,49.9824609375,11.4140625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fluxo Países.Paths[Saída Sem Correspondência de Pesquisa]"
+          TopLeft="381.09999666214,112.299999165535">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="140.718177380345,10.3181811354377"
+              Start="0,0"
+              End="133.218177380345,10.3181811354377">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="66.3590886901727,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="66.3590886901727,0"
+                    Point2="70.3590886901727,0"
+                    Point3="70.3590886901727,4" />
+                  <mssgle:LineSegment
+                    End="70.3590886901727,6.31818113543773" />
+                  <mssgle:CubicBezierSegment
+                    Point1="70.3590886901727,6.31818113543773"
+                    Point2="70.3590886901727,10.3181811354377"
+                    Point3="74.3590886901727,10.3181811354377" />
+                  <mssgle:LineSegment
+                    End="133.218177380345,10.3181811354377" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-19.2349347473273,-18.1953125,179.188046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fluxo Países\Origem Paises">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fluxo Países\SCD Tipo 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fluxo Países\Novo País">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fluxo Países\Destino OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fluxo Países\Pesquisa">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimPaises]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
