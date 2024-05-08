@@ -11,8 +11,8 @@
   DTS:LocaleID="1046"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="162"
-  DTS:VersionGUID="{37427186-D7E5-4304-92C6-ACE26F37AE8E}">
+  DTS:VersionBuild="181"
+  DTS:VersionGUID="{61974A45-BCAE-42E7-86C3-7673C8F26B8A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGL8840RY9UenotrO0axWRQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABEgtET03Lmjsmg+Q/2IQLVX9yfQ0XN3XEUzgzAvoBKvQAAAAAOgAAAAAIAACAAAABPL8Btdi7qv8woeLXvo2CLv15ztpGBc3pDnJKtShyePSAAAABPddCVcGlntWuqGJ7TnKWbsy7c62BXYyMY7aokR186p0AAAACZ16hwpW3BoPjMCCkLeT5ydSxWBunzE3Q2/cW4tk853+yyget5C37G9zXe29+6hOhTEMjNHZ6qkbuapYhuqn+d</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGL8840RY9UenotrO0axWRQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADSUKzEggrmLlQ7+V6inyZiUm19r22Amn3kUIsn8EaZBAAAAAAOgAAAAAIAACAAAACEDHOMmZvjVpyvSsHz3aA7oT6fCYP7Ma0qOt7Gwmg3kiAAAAC4U2+Tzf5Jb5KEj0nLkCZ2pSLM6m4RfwpJwBguJ+X15UAAAADuY6EjCgt9ba5zio1BN9zN0tCdYOoP/3h2hsdKBYl3gRbvoy2sXy1BOBlL36HwlXULP2rIe9lvcp1ETjaIKbtf</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGL8840RY9UenotrO0axWRQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABMMulp1/ROiyhCy8mHT8/VVpWy2nBis6zs+MEzzLMscQAAAAAOgAAAAAIAACAAAADrEXgU6FNDvEMeiFd1qsfYVGZK3ZUQwjTzBm8NjjZ/NSAAAACcqqn9JlzhB+Wt5dPl3/rIk4UAWvcQCwxqjy+MVj/KwEAAAAAIuTK8N/aBg2+oWpDN3WyB4yCBt+nu1/bL5noORqlUzaEfdegDXhRXXrhTpPwfn/kNmHKua+VEhb9QU0KhZ+qZ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGL8840RY9UenotrO0axWRQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACrjO2LL0r/k/43Fn/X7oDUTbqxtYItk8xVKvxtQnMQcAAAAAAOgAAAAAIAACAAAADFdISeGVFRKYVLsXxyDV/+F+tMB1k6Enp7m6LlTWj82iAAAAAEXa9iZWYMIcpJODlnmzhG62kJVYQxlPeGH3iuazX5p0AAAAB3aWrFIirmCBysOEVOKPLCb/ctL9tRWfutCIiWOfvLX3+aM0TC2F+W9F2jw7RVEEO4qnIRhbcCNarNMKMZk9he</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -125,7 +125,6 @@
       DTS:refId="Package\DSA_Fatos"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarefa Executar SQL"
-      DTS:Disabled="True"
       DTS:DTSID="{7DD3EFB0-2A5B-4FD1-A658-CD601C30F56A}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -3524,7 +3523,6 @@ where [refTable].[EstadioID] = ?</property>
       DTS:refId="Package\Fluxo FatoJogos"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarefa Fluxo de Dados"
-      DTS:Disabled="True"
       DTS:DTSID="{76F3C3AE-40D1-4767-B4A7-81EF876CDB95}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -4217,6 +4215,241 @@ where [refTable].[EstadioID] = ?</property>
                           name="SortColumnId">#{Package\Fluxo FatoJogos\DimData.Outputs[Saída de Origem OLE DB].Columns[Trimestre]}</property>
                       </properties>
                     </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fluxo FatoJogos\Coluna Derivada"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Coluna Derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;0"
+              description="Cria novos valores de coluna aplicando expressões a colunas de entrada da transformação. Crie novas colunas ou substitua as existentes. Por exemplo, concatene os valores das colunas 'first name' e 'last name' para formar uma coluna 'full name'."
+              name="Coluna Derivada"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Fluxo FatoJogos\Coluna Derivada.Inputs[Entrada de Coluna Derivada]"
+                  description="Entrada para a Transformação Coluna Derivada"
+                  name="Entrada de Coluna Derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fluxo FatoJogos\Coluna Derivada.Inputs[Entrada de Coluna Derivada].Columns[AmarelosCasa]"
+                      cachedDataType="i4"
+                      cachedName="AmarelosCasa"
+                      errorOrTruncationOperation="Computação"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Fluxo FatoJogos\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[AmarelosCasa]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão de Coluna Derivada"
+                          name="Expression">[REPLACENULL](#{Package\Fluxo FatoJogos\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[AmarelosCasa]},(DT_I4)0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão Amigável de Coluna Derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(AmarelosCasa,(DT_I4)0)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fluxo FatoJogos\Coluna Derivada.Inputs[Entrada de Coluna Derivada].Columns[AmarelosFora]"
+                      cachedDataType="i4"
+                      cachedName="AmarelosFora"
+                      errorOrTruncationOperation="Computação"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Fluxo FatoJogos\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[AmarelosFora]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão de Coluna Derivada"
+                          name="Expression">[REPLACENULL](#{Package\Fluxo FatoJogos\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[AmarelosFora]},(DT_I4)0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão Amigável de Coluna Derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(AmarelosFora,(DT_I4)0)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fluxo FatoJogos\Coluna Derivada.Inputs[Entrada de Coluna Derivada].Columns[VermelhosFora]"
+                      cachedDataType="i4"
+                      cachedName="VermelhosFora"
+                      errorOrTruncationOperation="Computação"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Fluxo FatoJogos\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[VermelhosFora]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão de Coluna Derivada"
+                          name="Expression">[REPLACENULL](#{Package\Fluxo FatoJogos\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[VermelhosFora]},(DT_I4)0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão Amigável de Coluna Derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(VermelhosFora,(DT_I4)0)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fluxo FatoJogos\Coluna Derivada.Inputs[Entrada de Coluna Derivada].Columns[VermelhosCasa]"
+                      cachedDataType="i4"
+                      cachedName="VermelhosCasa"
+                      errorOrTruncationOperation="Computação"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Fluxo FatoJogos\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[VermelhosCasa]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão de Coluna Derivada"
+                          name="Expression">[REPLACENULL](#{Package\Fluxo FatoJogos\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[VermelhosCasa]},(DT_I4)0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão Amigável de Coluna Derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(VermelhosCasa,(DT_I4)0)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fluxo FatoJogos\Coluna Derivada.Inputs[Entrada de Coluna Derivada].Columns[GolsCasa]"
+                      cachedDataType="i4"
+                      cachedName="GolsCasa"
+                      errorOrTruncationOperation="Computação"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Fluxo FatoJogos\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[GolsCasa]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão de Coluna Derivada"
+                          name="Expression">[REPLACENULL](#{Package\Fluxo FatoJogos\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[GolsCasa]},(DT_I4)0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão Amigável de Coluna Derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(GolsCasa,(DT_I4)0)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fluxo FatoJogos\Coluna Derivada.Inputs[Entrada de Coluna Derivada].Columns[GolsFora]"
+                      cachedDataType="i4"
+                      cachedName="GolsFora"
+                      errorOrTruncationOperation="Computação"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Fluxo FatoJogos\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[GolsFora]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão de Coluna Derivada"
+                          name="Expression">[REPLACENULL](#{Package\Fluxo FatoJogos\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[GolsFora]},(DT_I4)0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão Amigável de Coluna Derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(GolsFora,(DT_I4)0)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fluxo FatoJogos\Coluna Derivada.Inputs[Entrada de Coluna Derivada].Columns[AssistenciaCasa]"
+                      cachedDataType="i4"
+                      cachedName="AssistenciaCasa"
+                      errorOrTruncationOperation="Computação"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Fluxo FatoJogos\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[AssistenciaCasa]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão de Coluna Derivada"
+                          name="Expression">[REPLACENULL](#{Package\Fluxo FatoJogos\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[AssistenciaCasa]},(DT_I4)0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão Amigável de Coluna Derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(AssistenciaCasa,(DT_I4)0)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fluxo FatoJogos\Coluna Derivada.Inputs[Entrada de Coluna Derivada].Columns[AssistenciaFora]"
+                      cachedDataType="i4"
+                      cachedName="AssistenciaFora"
+                      errorOrTruncationOperation="Computação"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Fluxo FatoJogos\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[AssistenciaFora]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão de Coluna Derivada"
+                          name="Expression">[REPLACENULL](#{Package\Fluxo FatoJogos\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[AssistenciaFora]},(DT_I4)0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expressão Amigável de Coluna Derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(AssistenciaFora,(DT_I4)0)</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fluxo FatoJogos\Coluna Derivada.Outputs[Saída de Coluna Derivada]"
+                  description="Saída Padrão da Transformação Coluna Derivada"
+                  exclusionGroup="1"
+                  name="Saída de Coluna Derivada"
+                  synchronousInputId="Package\Fluxo FatoJogos\Coluna Derivada.Inputs[Entrada de Coluna Derivada]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fluxo FatoJogos\Coluna Derivada.Outputs[Saída de Erro de Coluna Derivada]"
+                  description="Saída de Erro da Transformação Coluna Derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Coluna Derivada"
+                  synchronousInputId="Package\Fluxo FatoJogos\Coluna Derivada.Inputs[Entrada de Coluna Derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fluxo FatoJogos\Coluna Derivada.Outputs[Saída de Erro de Coluna Derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo FatoJogos\Coluna Derivada.Outputs[Saída de Erro de Coluna Derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fluxo FatoJogos\Coluna Derivada.Outputs[Saída de Erro de Coluna Derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fluxo FatoJogos\Coluna Derivada.Outputs[Saída de Erro de Coluna Derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -5022,7 +5255,47 @@ where [refTable].[EstadioID] = ?</property>
                   dataType="System.String"
                   description="O comando SQL a ser executado."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT J.ID as JogoID, J.CompeticaoID, J.EquipaCasaID, J.EquipaForaID, J.EstadioID, J.Data, casa.AmarelosCasa, fora.AmarelosFora, fora.VermelhosFora, casa.VermelhosCasa, casa.GolsCasa, fora.GolsFora, casa.AssistenciaCasa, fora.AssistenciaFora FROM Jogos J JOIN (SELECT JogoID, EquipaID, SUM(Amarelos) as AmarelosCasa, SUM(CAST(Vermelho AS INT)) as VermelhosCasa, SUM(Golos) as GolsCasa, SUM(Assistencias) as AssistenciaCasa FROM FichasJogo WHERE EquipaID IN (SELECT EquipaCasaID FROM Jogos) GROUP BY JogoID, EquipaID) casa ON casa.EquipaID = J.EquipaCasaID AND casa.JogoID = J.ID JOIN (SELECT JogoID, EquipaID, SUM(Amarelos) as AmarelosFora, SUM(CAST(Vermelho AS INT)) as VermelhosFora, SUM(Golos) as GolsFora, SUM(Assistencias) as AssistenciaFora FROM FichasJogo WHERE EquipaID IN (SELECT EquipaForaID FROM Jogos) GROUP BY JogoID, EquipaID) fora ON fora.EquipaID = J.EquipaForaID AND fora.JogoID = J.ID ORDER BY J.ID;</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+  J.ID as JogoID, 
+  J.CompeticaoID, 
+  J.EquipaCasaID, 
+  J.EquipaForaID, 
+  J.EstadioID, 
+  J.Data,
+  casa.AmarelosCasa, 
+  fora.AmarelosFora, 
+  fora.VermelhosFora, 
+  casa.VermelhosCasa,
+  casa.GolsCasa, 
+  fora.GolsFora, 
+  casa.AssistenciaCasa, 
+  fora.AssistenciaFora
+FROM Jogos J
+LEFT JOIN (
+  SELECT 
+    JogoID, 
+    EquipaID, 
+    SUM(Amarelos) as AmarelosCasa, 
+    SUM(CAST(Vermelho AS INT)) as VermelhosCasa, 
+    SUM(Golos) as GolsCasa, 
+    SUM(Assistencias) as AssistenciaCasa
+  FROM FichasJogo
+  WHERE EquipaID IN (SELECT EquipaCasaID FROM Jogos)
+  GROUP BY JogoID, EquipaID
+) casa ON casa.EquipaID = J.EquipaCasaID AND casa.JogoID = J.ID
+LEFT JOIN (
+  SELECT 
+    JogoID, 
+    EquipaID, 
+    SUM(Amarelos) as AmarelosFora, 
+    SUM(CAST(Vermelho AS INT)) as VermelhosFora, 
+    SUM(Golos) as GolsFora, 
+    SUM(Assistencias) as AssistenciaFora
+  FROM FichasJogo
+  WHERE EquipaID IN (SELECT EquipaForaID FROM Jogos)
+  GROUP BY JogoID, EquipaID
+) fora ON fora.EquipaID = J.EquipaForaID AND fora.JogoID = J.ID
+ORDER BY J.ID;</property>
                 <property
                   dataType="System.String"
                   description="A variável que contém o comando SQL a ser executado."
@@ -5355,15 +5628,20 @@ where [refTable].[EstadioID] = ?</property>
               name="Saída da Junção de Mesclagem"
               startId="Package\Fluxo FatoJogos\Junção de Mesclagem.Outputs[Saída da Junção de Mesclagem]" />
             <path
-              refId="Package\Fluxo FatoJogos.Paths[Saída de Origem OLE DB]"
+              refId="Package\Fluxo FatoJogos.Paths[Saída de Coluna Derivada]"
               endId="Package\Fluxo FatoJogos\Classificar.Inputs[Classificar Entrada]"
-              name="Saída de Origem OLE DB"
-              startId="Package\Fluxo FatoJogos\Origem OLE DB.Outputs[Saída de Origem OLE DB]" />
+              name="Saída de Coluna Derivada"
+              startId="Package\Fluxo FatoJogos\Coluna Derivada.Outputs[Saída de Coluna Derivada]" />
             <path
-              refId="Package\Fluxo FatoJogos.Paths[Saída de Origem OLE DB1]"
+              refId="Package\Fluxo FatoJogos.Paths[Saída de Origem OLE DB]"
               endId="Package\Fluxo FatoJogos\Classificar 1.Inputs[Classificar Entrada]"
               name="Saída de Origem OLE DB"
               startId="Package\Fluxo FatoJogos\DimData.Outputs[Saída de Origem OLE DB]" />
+            <path
+              refId="Package\Fluxo FatoJogos.Paths[Saída de Origem OLE DB1]"
+              endId="Package\Fluxo FatoJogos\Coluna Derivada.Inputs[Entrada de Coluna Derivada]"
+              name="Saída de Origem OLE DB"
+              startId="Package\Fluxo FatoJogos\Origem OLE DB.Outputs[Saída de Origem OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -6267,7 +6545,7 @@ where [refTable].[PaisID] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{0A7221B1-2DB0-402F-8FA4-3B8BDB26E7F9}"
-          SQLTask:SqlStatementSource="update a&#xA;set a.Nome = b.Nome&#xA;from [dbo].[DimCompeticoes] a inner join Competicao_Update b&#xA;on a.CompeticaoID = b.CompeticaoID" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="update a&#xA;set a.Nome = b.Nome,&#xA;a.Sigla = b.Sigla&#xA;from [dbo].[DimCompeticoes] a inner join Competicao_Update b&#xA;on a.CompeticaoID = b.CompeticaoID&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -7082,6 +7360,40 @@ where [refTable].[PaisID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restrição 14]"
+          TopLeft="612.370341938589,239.158728495651">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="179.271285058912,3.50793648354204"
+              Start="0,0"
+              End="179.271285058912,-3.99206351645796">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-18.5"
+                    Point2="0,-22.5"
+                    Point3="4,-22.5" />
+                  <mssgle:LineSegment
+                    End="175.271285058912,-22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="175.271285058912,-22.5"
+                    Point2="179.271285058912,-22.5"
+                    Point3="179.271285058912,-18.5" />
+                  <mssgle:LineSegment
+                    End="179.271285058912,-3.99206351645796" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package.PrecedenceConstraints[Restrição 2]"
           TopLeft="597.234495155686,85.0261898849288">
           <EdgeLayout.Curve>
@@ -7317,40 +7629,6 @@ where [refTable].[PaisID] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restrição 14]"
-          TopLeft="612.370341938589,239.158728495651">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="179.271285058912,3.50793648354204"
-              Start="0,0"
-              End="179.271285058912,-3.99206351645796">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-18.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-18.5"
-                    Point2="0,-22.5"
-                    Point3="4,-22.5" />
-                  <mssgle:LineSegment
-                    End="175.271285058912,-22.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="175.271285058912,-22.5"
-                    Point2="179.271285058912,-22.5"
-                    Point3="179.271285058912,-18.5" />
-                  <mssgle:LineSegment
-                    End="179.271285058912,-3.99206351645796" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -7522,9 +7800,7 @@ where [refTable].[PaisID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7700,9 +7976,7 @@ where [refTable].[PaisID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7903,7 +8177,7 @@ where [refTable].[PaisID] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-132.676775771677,23.2888895284028,50.3535546875,11.43359375"
+              BoundingBox="-155.047400771678,23.2888895284028,50.3535546875,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -8075,7 +8349,7 @@ where [refTable].[PaisID] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-8.4318520850675,5,60.1340625,11.384765625"
+              BoundingBox="-30.7215591163175,5,60.1340625,11.384765625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -8114,7 +8388,7 @@ where [refTable].[PaisID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -8163,9 +8437,21 @@ where [refTable].[PaisID] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Fluxo FatoJogos\Destino OLE DB"
+          TopLeft="243.666653432781,304.133330860801" />
+        <NodeLayout
           Size="153.6,41.6"
           Id="Package\Fluxo FatoJogos\Origem OLE DB"
           TopLeft="147.166675633026,18.1333328496085" />
+        <NodeLayout
+          Size="182.4,41.6"
+          Id="Package\Fluxo FatoJogos\Junção de Mesclagem"
+          TopLeft="250.499986631176,228.866664502951" />
+        <NodeLayout
+          Size="135.2,41.6"
+          Id="Package\Fluxo FatoJogos\Classificar 1"
+          TopLeft="437.499976096055,101.399999294877" />
         <NodeLayout
           Size="119.2,41.6"
           Id="Package\Fluxo FatoJogos\DimData"
@@ -8173,47 +8459,9 @@ where [refTable].[PaisID] = ?</property>
         <NodeLayout
           Size="126.4,41.6"
           Id="Package\Fluxo FatoJogos\Classificar"
-          TopLeft="121.666660019093,91.8666660278374" />
-        <NodeLayout
-          Size="135.2,41.6"
-          Id="Package\Fluxo FatoJogos\Classificar 1"
-          TopLeft="437.499976096055,101.399999294877" />
+          TopLeft="121.666660019093,140.86666529768" />
         <EdgeLayout
           Id="Package\Fluxo FatoJogos.Paths[Saída de Origem OLE DB]"
-          TopLeft="223.966675633026,59.7333328496085">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-39.1000156139322,32.1333331782288"
-              Start="0,0"
-              End="-39.1000156139322,24.6333331782288">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.0666665891144" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.0666665891144"
-                    Point2="0,16.0666665891144"
-                    Point3="-4,16.0666665891144" />
-                  <mssgle:LineSegment
-                    End="-35.1000156139322,16.0666665891144" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-35.1000156139322,16.0666665891144"
-                    Point2="-39.1000156139322,16.0666665891144"
-                    Point3="-39.1000156139322,20.0666665891144" />
-                  <mssgle:LineSegment
-                    End="-39.1000156139322,24.6333331782288" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fluxo FatoJogos.Paths[Saída de Origem OLE DB1]"
           TopLeft="492.099976369243,68.4666664798392">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8246,36 +8494,32 @@ where [refTable].[PaisID] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="182.4,41.6"
-          Id="Package\Fluxo FatoJogos\Junção de Mesclagem"
-          TopLeft="242.499986750385,156.866665575835" />
         <EdgeLayout
-          Id="Package\Fluxo FatoJogos.Paths[Classificar Saída]"
-          TopLeft="184.866660019093,133.466666027837">
+          Id="Package\Fluxo FatoJogos.Paths[Saída da Junção de Mesclagem]"
+          TopLeft="341.699986631176,270.466664502951">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="148.833326731291,23.399999547998"
+              EndConnector="-20.8333331983951,33.6666663578494"
               Start="0,0"
-              End="148.833326731291,15.899999547998">
+              End="-20.8333331983951,26.1666663578494">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,7.69999977399902" />
+                    End="0,12.8333331789247" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,7.69999977399902"
-                    Point2="0,11.699999773999"
-                    Point3="4,11.699999773999" />
+                    Point1="0,12.8333331789247"
+                    Point2="0,16.8333331789247"
+                    Point3="-4,16.8333331789247" />
                   <mssgle:LineSegment
-                    End="144.833326731291,11.699999773999" />
+                    End="-16.8333331983951,16.8333331789247" />
                   <mssgle:CubicBezierSegment
-                    Point1="144.833326731291,11.699999773999"
-                    Point2="148.833326731291,11.699999773999"
-                    Point3="148.833326731291,15.699999773999" />
+                    Point1="-16.8333331983951,16.8333331789247"
+                    Point2="-20.8333331983951,16.8333331789247"
+                    Point3="-20.8333331983951,20.8333331789247" />
                   <mssgle:LineSegment
-                    End="148.833326731291,15.899999547998" />
+                    End="-20.8333331983951,26.1666663578494" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8286,24 +8530,64 @@ where [refTable].[PaisID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fluxo FatoJogos.Paths[Classificar Saída1]"
-          TopLeft="437.499976096055,122.199999294877">
+          TopLeft="505.099976096055,142.999999294877">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-74.7333226790034,34.6666662809583"
+              EndConnector="-134.333322798213,85.8666652080744"
               Start="0,0"
-              End="-74.7333226790034,27.1666662809583">
+              End="-134.333322798213,78.3666652080744">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-70.7333226790034,0" />
+                    End="0,47.0719991324547" />
                   <mssgle:CubicBezierSegment
-                    Point1="-70.7333226790034,0"
-                    Point2="-74.7333226790034,0"
-                    Point3="-74.7333226790034,4" />
+                    Point1="0,47.0719991324547"
+                    Point2="0,51.0719991324547"
+                    Point3="-4,51.0719991324547" />
                   <mssgle:LineSegment
-                    End="-74.7333226790034,27.1666662809583" />
+                    End="-130.333322798213,51.0719991324547" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-130.333322798213,51.0719991324547"
+                    Point2="-134.333322798213,51.0719991324547"
+                    Point3="-134.333322798213,55.0719991324547" />
+                  <mssgle:LineSegment
+                    End="-134.333322798213,78.3666652080744" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fluxo FatoJogos.Paths[Classificar Saída]"
+          TopLeft="184.866660019093,182.46666529768">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="127.766659945416,46.3999992052709"
+              Start="0,0"
+              End="127.766659945416,38.8999992052709">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5979125707872" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.5979125707872"
+                    Point2="0,27.5979125707872"
+                    Point3="4,27.5979125707872" />
+                  <mssgle:LineSegment
+                    End="123.766659945416,27.5979125707872" />
+                  <mssgle:CubicBezierSegment
+                    Point1="123.766659945416,27.5979125707872"
+                    Point2="127.766659945416,27.5979125707872"
+                    Point3="127.766659945416,31.5979125707872" />
+                  <mssgle:LineSegment
+                    End="127.766659945416,38.8999992052709" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8313,35 +8597,63 @@ where [refTable].[PaisID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="154.4,41.6"
-          Id="Package\Fluxo FatoJogos\Destino OLE DB"
-          TopLeft="241.666653462583,259.133331531353" />
+          Size="156,41.6"
+          Id="Package\Fluxo FatoJogos\Coluna Derivada"
+          TopLeft="239.999996423721,82.9999987632037" />
         <EdgeLayout
-          Id="Package\Fluxo FatoJogos.Paths[Saída da Junção de Mesclagem]"
-          TopLeft="333.699986750385,198.466665575835">
+          Id="Package\Fluxo FatoJogos.Paths[Saída de Origem OLE DB1]"
+          TopLeft="223.966675633026,59.7333328496085">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-14.833333287802,60.6666659555171"
+              EndConnector="94.0333207906954,23.2666659135952"
               Start="0,0"
-              End="-14.833333287802,53.1666659555171">
+              End="94.0333207906954,15.7666659135952">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.3333329777586" />
+                    End="0,7.63333295679758" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26.3333329777586"
-                    Point2="0,30.3333329777586"
-                    Point3="-4,30.3333329777586" />
+                    Point1="0,7.63333295679758"
+                    Point2="0,11.6333329567976"
+                    Point3="4,11.6333329567976" />
                   <mssgle:LineSegment
-                    End="-10.833333287802,30.3333329777586" />
+                    End="90.0333207906954,11.6333329567976" />
                   <mssgle:CubicBezierSegment
-                    Point1="-10.833333287802,30.3333329777586"
-                    Point2="-14.833333287802,30.3333329777586"
-                    Point3="-14.833333287802,34.3333329777586" />
+                    Point1="90.0333207906954,11.6333329567976"
+                    Point2="94.0333207906954,11.6333329567976"
+                    Point3="94.0333207906954,15.6333329567976" />
                   <mssgle:LineSegment
-                    End="-14.833333287802,53.1666659555171" />
+                    End="94.0333207906954,15.7666659135952" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fluxo FatoJogos.Paths[Saída de Coluna Derivada]"
+          TopLeft="239.999996423721,103.799998763204">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-55.1333364046284,37.0666665344768"
+              Start="0,0"
+              End="-55.1333364046284,29.5666665344768">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-51.1333364046284,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-51.1333364046284,0"
+                    Point2="-55.1333364046284,0"
+                    Point3="-55.1333364046284,4" />
+                  <mssgle:LineSegment
+                    End="-55.1333364046284,29.5666665344768" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8353,6 +8665,40 @@ where [refTable].[PaisID] = ?</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fluxo FatoJogos\Destino OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fluxo FatoJogos\Origem OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fluxo FatoJogos\DimData">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Fluxo Países">
     <LayoutInfo>
@@ -8413,9 +8759,7 @@ where [refTable].[PaisID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8474,7 +8818,7 @@ where [refTable].[PaisID] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-95.4533941169219,23.8590902771462,60.1340625,11.384765625"
+              BoundingBox="-95.453394116922,23.8590902771462,60.1340625,11.384765625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -8681,32 +9025,6 @@ where [refTable].[PaisID] = ?</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Update SCD Tipo 2 Estádios\Origem OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fluxo FatoJogos\DimData">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fluxo FatoJogos\Destino OLE DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
